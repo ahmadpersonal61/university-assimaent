@@ -1,50 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gojo 3D Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AhmiStore – Premium Shoes</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
-    <div class="background-container"></div>
-
-    <div class="main-wrapper">
-        <div class="glass-card">
-            <div class="header-section">
-                <h3>Hello My name is ahmad developer.</h3>
-                <h1>Login</h1>
-            </div>
-            <form>
-                <div class="input-group">
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="email" placeholder="Email Address" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Confirm Password" required>
-                </div>
-
-                <button type="submit" class="signup-btn">Sign Up</button>
-            </form>
-
-            <div class="footer-social">
-                <p>OR</p>
-                <div class="icons">
-                    <button class="social-btn"><i class="fa-brands fa-google"></i></button>
-                    <button class="social-btn"><i class="fa-brands fa-facebook"></i></button>
-                </div>
-            </div>
-        </div>
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-logo">
+      <span>Ahmi</span><span class="accent">Store</span>
     </div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
 
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">Ahmi<span class="accent">Store</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle"><i class="fas fa-search"></i></button>
+      <button class="icon-btn" id="cartBtn">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+    <input type="text" placeholder="Search shoes..." id="searchInput"/>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>My Bag</h3>
+      <button id="closeCart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">Your bag is empty 👟</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">Total: <span id="cartTotal">Rs. 0</span></div>
+      <button class="btn-checkout">Checkout Now</button>
+    </div>
+  </div>
+  <div class="overlay-bg" id="overlayBg"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-shape s1"></div>
+      <div class="hero-shape s2"></div>
+      <div class="hero-shape s3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-fade">NEW COLLECTION 2024</div>
+      <h1 class="hero-title animate-up">
+        Step Into<br/><span class="accent">Luxury</span>
+      </h1>
+      <p class="hero-sub animate-up delay-1">Pakistan's #1 Premium Footwear Store.<br/>100+ Exclusive Styles. Free Delivery Nationwide.</p>
+      <div class="hero-btns animate-up delay-2">
+        <a href="#products" class="btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+        <a href="#categories" class="btn-ghost">Browse Categories</a>
+      </div>
+      <div class="hero-stats animate-up delay-3">
+        <div class="stat"><strong>100+</strong><span>Products</span></div>
+        <div class="stat"><strong>50K+</strong><span>Happy Customers</span></div>
+        <div class="stat"><strong>5★</strong><span>Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-shoe-card animate-float">
+        <div class="shoe-glow"></div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" alt="Featured Shoe" class="hero-shoe-img"/>
+        <div class="hero-shoe-tag">
+          <span>Best Seller</span>
+          <strong>Rs. 8,999</strong>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Nike &bull;</span><span>Adidas &bull;</span><span>Jordan &bull;</span>
+      <span>Puma &bull;</span><span>Converse &bull;</span><span>Vans &bull;</span>
+      <span>New Balance &bull;</span><span>Reebok &bull;</span><span>Skechers &bull;</span>
+      <span>Under Armour &bull;</span><span>Nike &bull;</span><span>Adidas &bull;</span>
+      <span>Jordan &bull;</span><span>Puma &bull;</span><span>Converse &bull;</span>
+      <span>Vans &bull;</span><span>New Balance &bull;</span><span>Reebok &bull;</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="section-header">
+      <span class="section-tag">Browse By</span>
+      <h2>Shop <span class="accent">Categories</span></h2>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" data-filter="sneakers">
+        <div class="cat-img" style="background:linear-gradient(135deg,#ff6b35,#f7c59f)">
+          <i class="fas fa-shoe-prints"></i>
+        </div>
+        <h3>Sneakers</h3>
+        <p>32 Products</p>
+      </div>
+      <div class="cat-card" data-filter="formal">
+        <div class="cat-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>Formal</h3>
+        <p>18 Products</p>
+      </div>
+      <div class="cat-card" data-filter="sports">
+        <div class="cat-img" style="background:linear-gradient(135deg,#0f3460,#533483)">
+          <i class="fas fa-running"></i>
+        </div>
+        <h3>Sports</h3>
+        <p>24 Products</p>
+      </div>
+      <div class="cat-card" data-filter="casual">
+        <div class="cat-img" style="background:linear-gradient(135deg,#e94560,#f5a623)">
+          <i class="fas fa-tshirt"></i>
+        </div>
+        <h3>Casual</h3>
+        <p>20 Products</p>
+      </div>
+      <div class="cat-card" data-filter="boots">
+        <div class="cat-img" style="background:linear-gradient(135deg,#4a4e69,#9a8c98)">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h3>Boots</h3>
+        <p>6 Products</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="section-header">
+      <span class="section-tag">Our Collection</span>
+      <h2>100 <span class="accent">Premium</span> Shoes</h2>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="sneakers">Sneakers</button>
+      <button class="filter-btn" data-filter="formal">Formal</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="casual">Casual</button>
+      <button class="filter-btn" data-filter="boots">Boots</button>
+    </div>
+    <div class="sort-bar">
+      <select id="sortSelect">
+        <option value="default">Default Sort</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+      <span id="productCount" class="product-count">Showing 100 products</span>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+    <button class="load-more" id="loadMore">Load More <i class="fas fa-chevron-down"></i></button>
+  </section>
+
+  <!-- FEATURES STRIP -->
+  <section class="features-strip">
+    <div class="feature">
+      <i class="fas fa-truck"></i>
+      <div><strong>Free Delivery</strong><p>All over Pakistan</p></div>
+    </div>
+    <div class="feature">
+      <i class="fas fa-undo"></i>
+      <div><strong>Easy Returns</strong><p>7-day return policy</p></div>
+    </div>
+    <div class="feature">
+      <i class="fas fa-shield-alt"></i>
+      <div><strong>100% Original</strong><p>Guaranteed authentic</p></div>
+    </div>
+    <div class="feature">
+      <i class="fas fa-headset"></i>
+      <div><strong>24/7 Support</strong><p>Always here to help</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-content">
+      <span class="section-tag">Our Story</span>
+      <h2>About <span class="accent">AhmiStore</span></h2>
+      <p>AhmiStore is Pakistan's fastest growing premium footwear destination. We bring you the best brands from around the world — right to your doorstep. From casual sneakers to luxury formals, every shoe we sell is 100% authentic and carefully selected for quality.</p>
+      <p>Started in Lahore, we now serve customers across all of Pakistan with fast delivery and exceptional service.</p>
+      <div class="about-nums">
+        <div><strong>5+</strong><span>Years Experience</span></div>
+        <div><strong>100+</strong><span>Brands</span></div>
+        <div><strong>50K+</strong><span>Customers</span></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=600&q=80" alt="About AhmiStore"/>
+      <div class="about-badge">Est. 2019<br/>Lahore, PK</div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Get Exclusive <span class="accent">Deals</span></h2>
+    <p>Subscribe and get 10% off your first order!</p>
+    <form class="nl-form" onsubmit="subscribeNewsletter(event)">
+      <input type="email" placeholder="Enter your email..." required/>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2>Contact <span class="accent">Us</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div><strong>Address</strong><p>Main Market, Gulberg III, Lahore, Pakistan</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div><strong>Phone</strong><p>+92 300 1234567</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div><strong>Email</strong><p>info@ahmiistore.pk</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div><strong>Hours</strong><p>Mon–Sat: 10am – 9pm</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required/>
+        <input type="email" placeholder="Your Email" required/>
+        <input type="text" placeholder="Subject"/>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Ahmi<span class="accent">Store</span></div>
+        <p>Pakistan's Premier Footwear Destination. Step in style with every pair.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Sneakers</a></li>
+          <li><a href="#">Formal Shoes</a></li>
+          <li><a href="#">Sports Shoes</a></li>
+          <li><a href="#">Casual Shoes</a></li>
+          <li><a href="#">Boots</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 AhmiStore. All Rights Reserved. Made with ❤️ in Lahore, Pakistan</p>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop"><i class="fas fa-chevron-up"></i></button>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="product-modal" id="productModal">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="modal-img">
+        <img id="modalImg" src="" alt=""/>
+      </div>
+      <div class="modal-info">
+        <div class="modal-badge" id="modalBadge"></div>
+        <h2 id="modalName"></h2>
+        <div class="modal-rating" id="modalRating"></div>
+        <div class="modal-price" id="modalPrice"></div>
+        <p id="modalDesc"></p>
+        <div class="size-picker">
+          <strong>Select Size:</strong>
+          <div class="sizes" id="modalSizes"></div>
+        </div>
+        <div class="modal-btns">
+          <button class="btn-primary" id="modalAddCart">Add to Bag <i class="fas fa-shopping-bag"></i></button>
+          <button class="btn-ghost" id="modalWishlist"><i class="fas fa-heart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
